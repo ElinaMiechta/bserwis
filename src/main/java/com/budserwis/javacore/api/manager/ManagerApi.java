@@ -10,10 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 @CrossOrigin
 public class ManagerApi {
     private ManagerService service;
-
     @Value("${front.url}")
     private String url;
-
 
     public ManagerApi(ManagerService service) {
         this.service = service;

@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ManagerServiceTest {
@@ -25,10 +26,16 @@ public class ManagerServiceTest {
 
         //then
         assertThat(repository.findAll().size()).isGreaterThan(0);
+        assertThat(repository.findAll().size()).isEqualTo(1);
     }
 
     @Test
-    public void verifyManager() throws UserDoesNotExist {
+    public void should_verify_Manager() throws UserDoesNotExist {
         service.verifyManager("mechtaelina@gmail.com", "Administrator123");
+    }
+
+    @Test(expected = UserDoesNotExist.class)
+    public void should_not_verify_Manager() throws UserDoesNotExist {
+        service.verifyManager("mechta@gmail.com", "Admin123");
     }
 }
