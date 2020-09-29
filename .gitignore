@@ -40,3 +40,4 @@ build/
 target
 devSqlInit2.sql
 test-h2.properties
+src/resources
