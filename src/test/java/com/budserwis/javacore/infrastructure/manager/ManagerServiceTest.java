@@ -38,4 +38,5 @@ public class ManagerServiceTest {
     public void should_not_verify_Manager() throws UserDoesNotExist {
         service.verifyManager("mechta@gmail.com", "Admin123");
     }
+
 }

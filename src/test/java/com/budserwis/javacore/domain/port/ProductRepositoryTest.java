@@ -1,0 +1,27 @@
+package com.budserwis.javacore.domain.port;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class ProductRepositoryTest {
+    @Autowired
+    private ProductRepository repository;
+
+
+    @Test
+    public void should_check_if_product_is_added_to_real_DB(){
+        String name = "Гвозді";
+
+        //then
+        assertThat(repository.findAll().size()).isGreaterThan(0);
+        assertThat(repository.findAll().get(0).getTitle()).isEqualTo(name);
+    }
+
+}
